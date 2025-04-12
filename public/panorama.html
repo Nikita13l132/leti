@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панорама</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #panorama {
+            width: 100%;
+            height: 100%;
+        }
+        .pnlm-container {
+            background-color: transparent !important;
+        }
+        .pnlm-controls {
+            opacity: 0.8;
+        }
+        .pnlm-controls:hover {
+            opacity: 1;
+        }
+        #debug {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            z-index: 1000;
+            max-width: 80%;
+            max-height: 30%;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="panorama"></div>
+    <div id="debug"></div>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script>
+        // Функция для отладки
+        function debug(message) {
+            console.log(message);
+            const debugElement = document.getElementById('debug');
+            if (debugElement) {
+                debugElement.innerHTML += message + '<br>';
+            }
+        }
+
+        // Получаем параметры из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const panoramaUrl = urlParams.get('url') || '/panoramas/main-panorama.jpg';
+        const autoRotate = urlParams.get('autoRotate') === 'true';
+        const initialHfov = parseInt(urlParams.get('hfov')) || 100;
+
+        debug('URL параметры:');
+        debug('panoramaUrl: ' + panoramaUrl);
+        debug('autoRotate: ' + autoRotate);
+        debug('initialHfov: ' + initialHfov);
+
+        // Проверяем загрузку библиотеки
+        if (typeof pannellum === 'undefined') {
+            debug('ОШИБКА: Библиотека pannellum не загружена!');
+        } else {
+            debug('Библиотека pannellum загружена успешно');
+        }
+
+        // Инициализация панорамы
+        try {
+            debug('Начинаем инициализацию панорамы...');
+            const viewer = pannellum.viewer('panorama', {
+                type: 'equirectangular',
+                panorama: panoramaUrl,
+                autoLoad: true,
+                autoRotate: autoRotate ? 2 : 0,
+                compass: true,
+                showZoomCtrl: true,
+                showFullscreenCtrl: true,
+                hfov: initialHfov,
+                minHfov: 50,
+                maxHfov: 120,
+                friction: 0.2,
+                mouseZoom: true,
+                touchPanEnabled: true,
+                draggable: true,
+                disableKeyboardCtrl: false,
+                sceneFadeDuration: 300,
+                onLoad: function() {
+                    debug('Панорама загружена успешно');
+                    if (window.parent) {
+                        window.parent.postMessage({ type: 'panoramaLoaded' }, '*');
+                    }
+                },
+                onError: function(err) {
+                    debug('ОШИБКА загрузки панорамы: ' + err);
+                }
+            });
+            debug('Панорама инициализирована');
+        } catch (error) {
+            debug('ОШИБКА при инициализации панорамы: ' + error.message);
+        }
+
+        // Отправляем сообщение родительскому окну когда страница загружена
+        window.addEventListener('load', function() {
+            debug('Страница загружена');
+            if (window.parent) {
+                window.parent.postMessage({ type: 'panoramaLoaded' }, '*');
+            }
+        });
+    </script>
+</body>
+</html> 
