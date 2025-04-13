@@ -30,7 +30,7 @@ const Index = () => {
         <Navigation />
         
         {/* Hero Section */}
-        <section className="relative h-screen overflow-hidden">
+        <section className="relative h-screen overflow-hidden -mt-[64px]">
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{ 
@@ -41,7 +41,7 @@ const Index = () => {
             <div className="absolute inset-0 bg-black/50"></div>
           </div>
           
-          <div className="container mx-auto px-4 h-full flex items-center relative z-10">
+          <div className="container mx-auto px-4 h-full flex items-center relative z-10 pt-[64px]">
             <div className="max-w-3xl">
               <div className="animate-slide-up">
                 <span className="inline-block px-3 py-1 rounded-full bg-primary/80 text-white text-sm font-medium mb-4">
@@ -67,12 +67,14 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white text-sm font-medium animate-bounce">
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-                <div className="w-1 h-3 bg-white rounded-full mt-1 animate-slide-up"></div>
+          <div className="absolute bottom-10 inset-x-0 flex justify-center">
+            <div className="text-white text-sm font-medium animate-bounce">
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+                  <div className="w-1 h-3 bg-white rounded-full mt-1 animate-slide-up"></div>
+                </div>
+                <span>Прокрутите вниз</span>
               </div>
-              <span>Прокрутите вниз</span>
             </div>
           </div>
         </section>
@@ -181,9 +183,10 @@ const Index = () => {
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="mb-6 md:mb-0">
                 <div className="text-xl font-bold flex items-center gap-2">
-                  <div 
-                    className="w-6 h-6 bg-cover bg-center bg-no-repeat"
-                    style={{ backgroundImage: 'url("/images/leti-logo.png")' }}
+                  <img 
+                    src="/images/leti-logo.png" 
+                    alt="ЛЭТИ" 
+                    className="w-8 h-8 object-contain"
                   />
                   ЛЭТИ Тур
                 </div>

@@ -28,7 +28,11 @@ const Navigation = () => {
               to="/" 
               className="text-xl font-bold text-foreground flex items-center gap-2"
             >
-              <span className="block w-6 h-6 rounded-full bg-primary" />
+              <img 
+                src="/images/leti-logo.png" 
+                alt="ЛЭТИ" 
+                className="w-6 h-6 object-contain"
+              />
               ЛЭТИ Тур
             </Link>
 
@@ -112,9 +116,6 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-
-      {/* Add spacing to ensure content doesn't hide behind the fixed header */}
-      <div className="h-16"></div>
     </>
   );
 };
