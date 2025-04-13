@@ -112,33 +112,41 @@ const About = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="flex flex-col items-center">
                     <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <span className="text-2xl font-bold text-primary">ИП</span>
+                      <span className="text-2xl font-bold text-primary">АШ</span>
                     </div>
-                    <h4 className="font-medium">Иван Петров</h4>
-                    <p className="text-sm text-muted-foreground">Руководитель проекта</p>
+                    <h4 className="font-medium">Алиса Шевелёва</h4>
+                    <p className="text-sm text-muted-foreground">Куратор проекта</p>
                   </div>
                   
                   <div className="flex flex-col items-center">
                     <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <span className="text-2xl font-bold text-primary">АС</span>
+                      <span className="text-2xl font-bold text-primary">КД</span>
                     </div>
-                    <h4 className="font-medium">Анна Смирнова</h4>
-                    <p className="text-sm text-muted-foreground">Исторический консультант</p>
-                  </div>
-                  
-                  <div className="flex flex-col items-center">
-                    <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <span className="text-2xl font-bold text-primary">МК</span>
-                    </div>
-                    <h4 className="font-medium">Михаил Козлов</h4>
+                    <h4 className="font-medium">Кирилл Дергунов</h4>
                     <p className="text-sm text-muted-foreground">Frontend разработчик</p>
                   </div>
                   
                   <div className="flex flex-col items-center">
                     <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <span className="text-2xl font-bold text-primary">ЕВ</span>
+                      <span className="text-2xl font-bold text-primary">СС</span>
                     </div>
-                    <h4 className="font-medium">Екатерина Волкова</h4>
+                    <h4 className="font-medium">Сергей Симбирцев</h4>
+                    <p className="text-sm text-muted-foreground">Тестировщик</p>
+                  </div>
+                  
+                  <div className="flex flex-col items-center">
+                    <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                      <span className="text-2xl font-bold text-primary">НС</span>
+                    </div>
+                    <h4 className="font-medium">Никита Спихтаренко</h4>
+                    <p className="text-sm text-muted-foreground">Frontend разработчик</p>
+                  </div>
+
+                  <div className="flex flex-col items-center">
+                    <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                      <span className="text-2xl font-bold text-primary">ЭГ</span>
+                    </div>
+                    <h4 className="font-medium">Эдуард Гембихнер</h4>
                     <p className="text-sm text-muted-foreground">UI/UX дизайнер</p>
                   </div>
                 </div>

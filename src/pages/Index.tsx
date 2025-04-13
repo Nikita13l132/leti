@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock, MapPin, BookOpen, Award } from 'lucide-react';
+import { ArrowRight, MapPin, BookOpen, Award } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import AnimatedTransition from '../components/AnimatedTransition';
 
 // Local image paths
 const heroImage = "https://cdn.forbes.ru/forbes-static/new/2024/06/Electrotechnical-University-SPB-01-copy-667565fde7763.jpg";
-const tourImage = "/lovable-uploads/8c25670f-cdb8-4e0f-96a8-7f2d078b3227.png";
+const tourImage = "/panoramas/museum-panorama.png";
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -62,13 +62,6 @@ const Index = () => {
                     Начать тур
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
-                  <Link
-                    to="/timeline"
-                    className="animated-button bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-medium px-6 py-3 rounded-lg inline-flex items-center"
-                  >
-                    Хронология
-                    <Clock className="ml-2 h-4 w-4" />
-                  </Link>
                 </div>
               </div>
             </div>
@@ -92,11 +85,11 @@ const Index = () => {
                 Исследуйте историю ЛЭТИ в новом формате
               </h2>
               <p className="text-muted-foreground">
-                Наш виртуальный тур позволяет вам погрузиться в богатую историю университета через интерактивные панорамы, хронологии и увлекательные истории
+                Наш виртуальный тур позволяет вам погрузиться в богатую историю университета через интерактивные панорамы и увлекательные истории
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="glass p-6 rounded-xl transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                   <MapPin className="h-6 w-6 text-primary" />
@@ -104,16 +97,6 @@ const Index = () => {
                 <h3 className="text-xl font-bold mb-2">Виртуальные панорамы</h3>
                 <p className="text-muted-foreground">
                   Исследуйте исторические локации ЛЭТИ через интерактивные 360° панорамы с детальными описаниями
-                </p>
-              </div>
-              
-              <div className="glass p-6 rounded-xl transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                  <Clock className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Интерактивная хронология</h3>
-                <p className="text-muted-foreground">
-                  Пройдите через ключевые моменты истории университета в хронологическом порядке с богатым мультимедийным контентом
                 </p>
               </div>
               
@@ -187,13 +170,6 @@ const Index = () => {
                   Начать виртуальный тур
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-                <Link
-                  to="/timeline"
-                  className="animated-button bg-white hover:bg-white/90 text-foreground font-medium px-6 py-3 rounded-lg inline-flex items-center justify-center"
-                >
-                  Изучить хронологию
-                  <Clock className="ml-2 h-4 w-4" />
-                </Link>
               </div>
             </div>
           </div>
@@ -222,9 +198,6 @@ const Index = () => {
                 </Link>
                 <Link to="/tour" className="text-foreground/80 hover:text-primary transition-colors duration-200">
                   Виртуальный тур
-                </Link>
-                <Link to="/timeline" className="text-foreground/80 hover:text-primary transition-colors duration-200">
-                  Хронология
                 </Link>
                 <Link to="/about" className="text-foreground/80 hover:text-primary transition-colors duration-200">
                   О проекте

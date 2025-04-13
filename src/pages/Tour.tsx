@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import AnimatedTransition from '../components/AnimatedTransition';
 import PanoramaIframe from '../components/PanoramaIframe';
-import PanoramaViewer from '../components/PanoramaViewer';
 import { toast } from "sonner";
 
 const Tour = () => {
   const isMobile = useIsMobile();
   const [panoramaLoaded, setPanoramaLoaded] = useState(false);
-  const [activeViewer, setActiveViewer] = useState<'iframe' | 'viewer'>('iframe');
 
   useEffect(() => {
     // Show welcome toast only once
@@ -33,49 +31,15 @@ const Tour = () => {
           <div className="max-w-5xl mx-auto">
             <h1 className="text-2xl md:text-3xl font-bold mb-4">Виртуальный тур по музею ЛЭТИ</h1>
             
-            {/* Viewer selector */}
-            <div className="mb-4 flex gap-4">
-              <button
-                onClick={() => setActiveViewer('iframe')}
-                className={`px-4 py-2 rounded-lg ${
-                  activeViewer === 'iframe' 
-                    ? 'bg-primary text-primary-foreground' 
-                    : 'bg-secondary text-secondary-foreground'
-                }`}
-              >
-                Панорама 1
-              </button>
-              <button
-                onClick={() => setActiveViewer('viewer')}
-                className={`px-4 py-2 rounded-lg ${
-                  activeViewer === 'viewer' 
-                    ? 'bg-primary text-primary-foreground' 
-                    : 'bg-secondary text-secondary-foreground'
-                }`}
-              >
-                Панорама 2
-              </button>
-            </div>
-            
-            {/* Panorama viewers */}
+            {/* Panorama viewer */}
             <div className="rounded-xl overflow-hidden mb-4">
-              {activeViewer === 'iframe' ? (
-                <PanoramaIframe 
-                  panoramaUrl="/lovable-uploads/8c25670f-cdb8-4e0f-96a8-7f2d078b3227.png"
-                  height={isMobile ? "70vh" : "80vh"}
-                  initialHfov={isMobile ? 100 : 120}
-                  autoRotate={false}
-                  onLoad={handlePanoramaLoad}
-                />
-              ) : (
-                <PanoramaViewer 
-                  panoramaUrl="/panoramas/main-panorama.jpg"
-                  height={isMobile ? "70vh" : "80vh"}
-                  initialHfov={isMobile ? 90 : 100}
-                  autoRotate={false}
-                  onLoad={handlePanoramaLoad}
-                />
-              )}
+              <PanoramaIframe 
+                panoramaUrl="/panoramas/museum-panorama.png"
+                height={isMobile ? "70vh" : "80vh"}
+                initialHfov={isMobile ? 100 : 120}
+                autoRotate={false}
+                onLoad={handlePanoramaLoad}
+              />
             </div>
 
             {panoramaLoaded && (
