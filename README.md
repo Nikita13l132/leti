@@ -41,7 +41,3 @@ npm run build
 - Netlify
 - Vercel
 - GitHub Pages
-
-## Лицензия
-
-MIT
